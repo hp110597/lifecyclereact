@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { parsePath } from 'react-router-dom';
 
 export default class FormProduct extends Component {
     
@@ -87,10 +88,33 @@ export default class FormProduct extends Component {
         // alert('submitted');
         this.props.createProduct(productInfo);
     }
+
+    // static getDerivedStateFromProps(newProps,currentState){
+    //     //Lấy props.productEdit => Gán vào state.productInfo => sau đó giao diện lấy ra từ state
+    //     if(newProps.productEdit.id!==currentState.productInfo.id){
+    //         //Bấm nút edit
+    //         currentState.productInfo = newProps.productEdit;
+    //         return currentState //Hàm này tạo ra this.state mới
+    //     }
+    //     return null
+    // }
+
+    //componentWillReceiveProps chạy trước render sau khi props thay đổi
+    componentWillReceiveProps(newProps){
+        //Khi bấm nút chỉnh sửa lấy props gán vào state => giao diện render ra từ state
+        this.setState({
+            productInfo:newProps.productEdit
+        })
+
+    }
+
+
+
+
     render() {
 
-        console.log(this.props.productEdit)
-        let {id,name,productType,img,description,price} = this.props.productEdit;
+        // console.log(this.props.productEdit)
+        let {id,name,productType,img,description,price} = this.state.productInfo;
         return (
             <form className='card' onSubmit={this.handleSubmit}>
                 <div className='card-header bg-dark text-warning' style={{ fontSize: 20, fontWeight: 'bold' }}>
@@ -143,7 +167,9 @@ export default class FormProduct extends Component {
                 </div>
                 <div className='card-footer'>
                     <button className='btn btn-success mx-2'>Create</button>
-                    <button className='btn btn-primary mx-2'>Update</button>
+                    <button className='btn btn-primary mx-2' type='button'onClick={()=>{
+                        this.props.updateProduct(this.state.productInfo)
+                    }}>Update</button>
                 </div>
             </form>
         )
