@@ -4,7 +4,6 @@ import TableProduct from './TableProduct'
 import axios from 'axios'
 
 export default class ProductManagement extends Component {
-
   state = {
     arrProduct: [
       { id: '1', name: 'product 1', price: '1000', description: 'product 1 desc', img: 'https://picsum.photos/200/200', productType: 'mobile' },
@@ -93,7 +92,7 @@ export default class ProductManagement extends Component {
 
   componentDidMount(){
       let promise = axios ({
-        url: 'http://svcy.myclass.vn//api/product/getall',
+        url: 'https://svcy.myclass.vn/api/product/getall',
         method:'GET'
       })
       promise.then(result => {

@@ -95,13 +95,16 @@ function App() {
                   Lifecycle
                 </NavLink>
               </li>
-              {/* <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Redux</a>
                 <div className="dropdown-menu" aria-labelledby="dropdownId">
-                  <a className="dropdown-item" href="#">Action 1</a>
-                  <a className="dropdown-item" href="#">Action 2</a>
+                  <NavLink className="dropdown-item" to="/demoredux">Tăng giảm số lượng</NavLink>
+                  <NavLink className="dropdown-item" to="/demochangecar">Demo chọn xe</NavLink>
+                  <NavLink className="dropdown-item" to="/qlsv">Demo QLSV</NavLink>
+                  <NavLink className="dropdown-item" to="/demogiohang">Demo Giỏ hàng</NavLink>
+
                 </div>
-              </li> */}
+              </li>
             </ul>
             <form className="d-flex my-2 my-lg-0">
               <input
