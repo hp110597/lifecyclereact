@@ -31,13 +31,39 @@ class GioHang extends Component {
                   </td>
                   <td>{spGH.tenSP}</td>
                   <td>
-                    <button className="btn btn-primary mx-2">+</button>{spGH.soLuong}
-                    <button className="btn btn-primary mx-2">-</button>
+                    <button className="btn btn-primary mx-2" onClick={()=>{
+                      const action ={
+                        type: 'TANG_GIAM_SO_LUONG',
+                        payload: {
+                          maSP:spGH.maSP,
+                          soLuong:1
+                        }
+                      }
+                      this.props.dispatch(action)
+                    }}>+</button>{spGH.soLuong}
+                    <button className="btn btn-primary mx-2" onClick={()=>{
+                      const action ={
+                        type: 'TANG_GIAM_SO_LUONG',
+                        payload: {
+                          maSP:spGH.maSP,
+                          soLuong:-1
+                        }
+                      }
+                      this.props.dispatch(action)
+                    }}>-</button>
                   </td>
                   <td>{spGH.giaBan}</td>
                   <td>{spGH.giaBan*spGH.soLuong}</td>
                   <td>
-                    <button className="btn btn-danger mx-2">Xóa</button>
+                    <button className="btn btn-danger mx-2" onClick={()=>{
+                      const action = {
+                        type : 'XOA_GIO_HANG',
+                        payload: {
+                          maSPClick:spGH.maSP
+                        }
+                      }
+                      this.props.dispatch(action)
+                    }}>Xóa</button>
                   </td>
                 </tr>
               ;
